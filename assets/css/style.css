@@ -12130,7 +12130,7 @@ img {
 	gap: 30%;
 	width: calc(100% + 75px);
 	margin-left: -5%;
-	padding-top:10%;
+	padding-top: 10%;
 	box-sizing: border-box;
 }
 
@@ -12142,21 +12142,182 @@ img {
 }
 
 .mandatory-disclosure {
-    text-align: center;
+	text-align: center;
 }
 
 .mandatory-disclosure i {
-    font-size: 55px;
-    color: #b22222;
-    margin-bottom: 15px;
+	font-size: 55px;
+	color: #b22222;
+	margin-bottom: 15px;
 }
 
 .mandatory-disclosure h4 {
-    font-size: 18px;
-    margin-top: 10px;
+	font-size: 18px;
+	margin-top: 10px;
 }
 
 .mandatory-disclosure a {
-    text-decoration: none;
-    color: inherit;
+	text-decoration: none;
+	color: inherit;
+}
+
+#captchaQuestion {
+	width: 34%;
+	min-height: 50px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	background: #eeeeee;
+	color: #252525;
+	font-size: 22px;
+	font-weight: 700;
+	letter-spacing: 4px;
+	font-family: monospace;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+
+    #enrollmentForm .form-control {
+        min-height: 85px;
+        padding: 12px 18px;
+        font-size: 15px;
+		
+    }
+
+    #enrollmentForm textarea.form-control {
+        min-height: 160px !important;
+    }
+
+    #enrollmentForm .form-group {
+        margin-bottom: 20px;
+    }
+
+    #enrollmentForm h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .appoinment-style-one-info p {
+        line-height: 1.8;
+    }
+
+	
+/* Map, Admission and Enrollment Section */
+
+.map-admission-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start !important;
+}
+
+.map-admission-left,
+.map-admission-right {
+    padding: 0 15px;
+    margin-top: 0 !important;
+}
+
+.map-image-wrapper {
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.map-image-wrapper img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.disclosure-button-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.disclosure-button-wrapper a {
+    display: inline-block;
+    width: 80%;
+}
+
+.admission-details {
+    width: 100%;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.admission-contact {
+    margin-top: 20px;
+}
+
+.admission-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.map-admission-right #enrollmentForm {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    padding-top: 0 !important;
+}
+
+.map-admission-right #enrollmentForm form {
+    margin-top: 0 !important;
+}
+
+.map-admission-right #enrollmentForm h2 {
+    margin-top: 0 !important;
+}
+
+.map-admission-right .form-group textarea {
+    min-height: 145px;
+}
+
+.captcha-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#captchaQuestion {
+    width: 34%;
+    padding: 14px;
+    background: #f2f2f2;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 3px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.captcha-input {
+    width: 66%;
+    min-width: 0;
+}
+
+.captcha-input input {
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .map-admission-left,
+    .map-admission-right {
+        width: 100%;
+    }
+
+    .map-admission-right {
+        margin-top: 30px !important;
+    }
 }
