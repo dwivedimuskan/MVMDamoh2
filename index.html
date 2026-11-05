@@ -34,6 +34,42 @@
 
 </head>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        let captchaText = "";
+
+        function generateCaptcha() {
+            const characters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+            captchaText = "";
+
+            for (let i = 0; i < 7; i++) {
+                captchaText += characters.charAt(
+                    Math.floor(Math.random() * characters.length)
+                );
+            }
+
+            document.getElementById("captchaQuestion").textContent = captchaText;
+        }
+
+        generateCaptcha();
+
+        document.querySelector(".contact-form").addEventListener("submit", function (e) {
+
+            let userCaptcha = document.getElementById("captcha").value.trim();
+
+            if (userCaptcha.toUpperCase() !== captchaText) {
+                e.preventDefault();
+                alert("Incorrect CAPTCHA! Please try again.");
+                document.getElementById("captcha").value = "";
+                generateCaptcha();
+            }
+
+        });
+
+    });
+</script>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBNN7QC3" height="0" width="0"
@@ -73,9 +109,9 @@
                             <li>
                                 <i class="fas fa-envelope-open-text"></i>mvmdamoh@mssmail.org
                             </li>
-                            <li>
+                            <!-- <li>
                                 <i class="fas fa-clock"></i> Working Hours: 8:00 AM – 4:00PM
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -279,7 +315,11 @@
 
                 <!-- Single Item -->
                 <div class="swiper-slide banner-style-three shadow-left">
-                    <div class="item bg-cover" style="background: url(assets/img/MVMDamoh/banner2.jpeg);">
+                    <div class="item bg-cover" style="background-image: url(assets/img/MVMDamoh/banner2.jpeg);
+       background-size: contain;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-color: #000;">
                         <div class="banner-syle-thee-shape">
                             <img src="assets/img/shape/3.png" alt="Image Not Found">
                             <img src="assets/img/shape/4.png" alt="Image Not Found">
@@ -289,10 +329,10 @@
                                 <div class="col-xl-7">
                                     <div class="content">
                                         <h2>Maharishi Vidya Mandir Damoh</h2>
-                                        <p>
+                                        <!-- <p>
                                             Providing quality education, academic excellence, and value-based learning
                                             to nurture confident, responsible, and future-ready individuals.
-                                        </p>
+                                        </p> -->
                                         <div class="button">
                                             <a href="about-us.html" class="btn-style-one circle">Discover More
                                                 <span></span></a>
@@ -317,10 +357,10 @@
                                 <div class="col-xl-7">
                                     <div class="content">
                                         <h2>Maharishi Vidya Mandir Damoh</h2>
-                                        <p>
+                                        <!-- <p>
                                             Providing quality education, academic excellence, and value-based learning
                                             to nurture confident, responsible, and future-ready individuals.
-                                        </p>
+                                        </p> -->
                                         <div class="button">
                                             <a href="about-us.html" class="btn-style-one circle">Discover More
                                                 <span></span></a>
@@ -436,8 +476,8 @@
 
     <!-- Scope And Research MVM Damoh
     ============================================= -->
-    <div class="process-style-one-area bg-dark text-light text-center default-padding bg-cover gap-40px"
-        style="background-image: url(assets/img/shape/21.png);">
+    <div class="process-style-one-area bg-dark text-light text-center bg-cover gap-40px"
+        style="background-image: url(assets/img/shape/21.png); padding: 40px 0;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -451,7 +491,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="process-style-one-items wow fadeInUp" data-wow-delay="100ms">
+                    <div class="process-style-one-items wow fadeInUp" data-wow-delay="100ms" id="scopeIcon">
                         <!-- Single Item -->
                         <div class="process-style-one-item hover-active-item">
                             <div class="icon">
@@ -474,7 +514,7 @@
                         <div class="process-style-one-item hover-active-item active">
                             <div class="icon">
                                 <img src="assets\img\MVMDamoh\icon2.png" alt="Image Not Found"
-                                    style="width:300px !important; height: 300px !important; max-width: none !important; object-fit: contain;">
+                                    style="width:100px !important; height: 100px !important; max-width: none !important; object-fit: contain;">
                             </div>
                             <div class="info">
                                 <!-- <div class="shape">
@@ -556,7 +596,7 @@
                                 <div class="swiper-slide">
                                     <div class="visa-cat-style-three">
                                         <div class="thumb">
-                                            <iframe src="https://www.youtube.com/embed/AIWqJ8tJ8JU"
+                                            <iframe src="https://www.youtube.com/embed/AIWqJ8tJ8JU" loading="lazy"
                                                 title="Maharishi Ji Video 1"
                                                 style="width: 100%; aspect-ratio: 16 / 9; height: auto; display: block; border: none;"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -597,7 +637,7 @@
                                     <div class="visa-cat-style-three">
                                         <div class="thumb">
                                             <iframe src="https://www.youtube.com/embed/y7ajEzVsuhg?start=3"
-                                                title="Maharishi Ji Video 2"
+                                                loading="lazy" title="Maharishi Ji Video 2"
                                                 style="width: 100%; aspect-ratio: 16 / 9; height: auto; display: block; border: none;"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                 allowfullscreen>
@@ -637,7 +677,7 @@
                                     <div class="visa-cat-style-three">
                                         <div class="thumb">
                                             <iframe src="https://www.youtube.com/embed/HpElKiQFXvQ?start=1"
-                                                title="Maharishi Ji Video 3"
+                                                loading="lazy" title="Maharishi Ji Video 3"
                                                 style="width: 100%; aspect-ratio: 16 / 9; height: auto; display: block; border: none;"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                 allowfullscreen>
@@ -830,224 +870,197 @@
 
 
 
-    
-<!-- Map, Admission and Enrollment Section -->
-<div class="choose-us-style-three-area default-padding map-admission-section">
 
-    <div class="container">
+    <!-- Map, Admission and Enrollment Section -->
+    <div class="choose-us-style-three-area default-padding map-admission-section">
 
-        <div class="row map-admission-row">
+        <div class="container">
 
-            <!-- LEFT COLUMN: MAP + ADMISSION DETAILS -->
-            <div class="col-lg-6 col-md-12 map-admission-left">
+            <div class="row map-admission-row">
 
-                <!-- India Map GIF -->
-                <div class="map-image-wrapper">
-                    <img src="assets/img/mvm-india-map.gif"
-                         alt="MVM India Map">
-                </div>
+                <!-- LEFT COLUMN: MAP + ADMISSION DETAILS -->
+                <div class="col-lg-6 col-md-12 map-admission-left">
 
-                <!-- Mandatory Public Disclosure -->
-                <div class="disclosure-button-wrapper">
-                    <a href="mandatory-disclosure.html"
-                       class="btn-style-one circle">
-                        Mandatory Public Disclosure <span></span>
-                    </a>
-                </div>
+                    <!-- India Map GIF -->
+                    <div class="map-image-wrapper">
+                        <img src="assets/img/mvm-india-map.gif" alt="MVM India Map">
+                    </div>
 
-                <!-- Admission Section -->
-                <div class="country-three-content-list admission-details">
+                    <!-- Mandatory Public Disclosure -->
+                    <div class="disclosure-button-wrapper">
+                        <a href="mandatory-disclosure.html" class="btn-style-one circle">
+                            Mandatory Public Disclosure <span></span>
+                        </a>
+                    </div>
 
-                    <div class="item active">
+                    <!-- Admission Section -->
+                    <div class="country-three-content-list admission-details">
 
-                        <div class="country-three-content">
+                        <div class="item active">
 
-                            <div class="country">
-                                <div class="info">
-                                    <h5>Admission 2026-2027</h5>
+                            <div class="country-three-content">
 
-                                    <span>
-                                        Registration / Admission forms
-                                        are available online
-                                    </span>
+                                <div class="country">
+                                    <div class="info">
+                                        <h5>Admission 2026-2027</h5>
+
+                                        <span>
+                                            Registration / Admission forms
+                                            are available online
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- Admission Contact Details -->
-                            <div class="content admission-contact">
+                                <!-- Admission Contact Details -->
+                                <div class="content admission-contact">
 
-                                <h4>For Admission Queries</h4>
+                                    <h4>For Admission Queries</h4>
 
-                                <p>
-                                    Please Write Us<br>
-                                    <i class="fas fa-envelope"></i>
-                                    <a href="mailto:mvmdamoh@mssmail.org">
-                                        mvmdamoh@mssmail.org
+                                    <p>
+                                        Please Write Us<br>
+                                        <i class="fas fa-envelope"></i>
+                                        <a href="mailto:mvmdamoh@mssmail.org">
+                                            mvmdamoh@mssmail.org
+                                        </a>
+                                    </p>
+
+                                    <p>
+                                        Please Call Us<br>
+                                        <i class="fas fa-phone-alt"></i>
+                                        <a href="tel:0781225384">07812-225384</a> /
+                                        <a href="tel:9893429639">9893429639</a>
+                                    </p>
+
+                                </div>
+
+                                <!-- Admission Buttons -->
+                                <div class="content admission-buttons">
+
+                                    <a href="#" class="btn-style-one circle">
+                                        Apply Online <span></span>
                                     </a>
-                                </p>
 
-                                <p>
-                                    Please Call Us<br>
-                                    <i class="fas fa-phone-alt"></i>
-                                    <a href="tel:0781225384">07812-225384</a> /
-                                    <a href="tel:9893429639">9893429639</a>
-                                </p>
+                                    <a href="#" class="btn-style-one circle">
+                                        Admission Enquiry <span></span>
+                                    </a>
 
-                            </div>
-
-                            <!-- Admission Buttons -->
-                            <div class="content admission-buttons">
-
-                                <a href="#" class="btn-style-one circle">
-                                    Apply Online <span></span>
-                                </a>
-
-                                <a href="#" class="btn-style-one circle">
-                                    Admission Enquiry <span></span>
-                                </a>
+                                </div>
 
                             </div>
 
                         </div>
 
                     </div>
+                    <!-- Admission Section End -->
 
                 </div>
-                <!-- Admission Section End -->
-
-            </div>
-            <!-- LEFT COLUMN END -->
+                <!-- LEFT COLUMN END -->
 
 
-            <!-- RIGHT COLUMN: ENROLLMENT FORM -->
-            <div class="col-lg-6 col-md-12 map-admission-right">
+                <!-- RIGHT COLUMN: ENROLLMENT FORM -->
+                <div class="col-lg-6 col-md-12 map-admission-right">
 
-                <div class="appoinment-style-one-info" id="enrollmentForm">
+                    <div class="appoinment-style-one-info" id="enrollmentForm">
 
-                    <form action="#" method="POST" class="contact-form">
+                        <form action="#" method="POST" class="contact-form">
 
-                        <h2>Enrollment Form</h2>
+                            <h2>Enrollment Form</h2>
 
-                        <p>
-                            Begin your child's educational journey with Maharishi Vidya Mandir Damoh.
-                            Fill out the enrollment form below to enquire about admission for the
-                            academic session 2026-2027.
-                        </p>
+                            <p>
+                                Begin your child's educational journey with Maharishi Vidya Mandir Damoh.
+                                Fill out the enrollment form below to enquire about admission for the
+                                academic session 2026-2027.
+                            </p>
 
-                        <p>
-                            <strong>* Marked information is mandatory.</strong>
-                        </p>
+                            <p>
+                                <strong>* Marked information is mandatory.</strong>
+                            </p>
 
-                        <!-- Name -->
-                        <div class="form-group">
-                            <input class="form-control"
-                                   id="name"
-                                   name="name"
-                                   placeholder="Enter Your Name *"
-                                   type="text"
-                                   required>
-                        </div>
-
-                        <!-- Mobile Number -->
-                        <div class="form-group">
-                            <input class="form-control"
-                                   id="phone"
-                                   name="phone"
-                                   placeholder="Mobile Number *"
-                                   type="tel"
-                                   required>
-                        </div>
-
-                        <!-- Email -->
-                        <div class="form-group">
-                            <input class="form-control"
-                                   id="email"
-                                   name="email"
-                                   placeholder="Email Address *"
-                                   type="email"
-                                   required>
-                        </div>
-
-                        <!-- Choose Class -->
-                        <div class="form-group">
-                            <select class="form-control"
-                                    id="class"
-                                    name="class"
-                                    required>
-
-                                <option value="">Choose Class *</option>
-                                <option>Nursery</option>
-                                <option>LKG</option>
-                                <option>UKG</option>
-                                <option>Class I</option>
-                                <option>Class II</option>
-                                <option>Class III</option>
-                                <option>Class IV</option>
-                                <option>Class V</option>
-                                <option>Class VI</option>
-                                <option>Class VII</option>
-                                <option>Class VIII</option>
-                                <option>Class IX</option>
-                                <option>Class X</option>
-                                <option>Class XI</option>
-                                <option>Class XII</option>
-
-                            </select>
-                        </div>
-
-                        <!-- Message -->
-                        <div class="form-group comments">
-                            <textarea class="form-control"
-                                      id="message"
-                                      name="message"
-                                      placeholder="Type Message *"
-                                      required></textarea>
-                        </div>
-
-                        <!-- CAPTCHA -->
-                        <div class="captcha-wrapper">
-
-                            <div id="captchaQuestion">
-                                52J3K34
+                            <!-- Name -->
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" placeholder="Enter Your Name *"
+                                    type="text" required>
                             </div>
 
-                            <div class="captcha-input">
-                                <input class="form-control"
-                                       id="captcha"
-                                       name="captcha"
-                                       placeholder="Enter Above Security Text Here *"
-                                       type="text"
-                                       required>
+                            <!-- Mobile Number -->
+                            <div class="form-group">
+                                <input class="form-control" id="phone" name="phone" placeholder="Mobile Number *"
+                                    type="tel" required>
                             </div>
 
-                        </div>
+                            <!-- Email -->
+                            <div class="form-group">
+                                <input class="form-control" id="email" name="email" placeholder="Email Address *"
+                                    type="email" required>
+                            </div>
 
-                        <!-- Submit Button -->
-                        <button type="submit"
-                                name="submit"
-                                id="submit"
-                                class="btn-style-one circle">
-                            Submit <span></span>
-                        </button>
+                            <!-- Choose Class -->
+                            <div class="form-group">
+                                <select class="form-control" id="class" name="class" required>
 
-                        <!-- Notification -->
-                        <div class="col-lg-12 alert-notification">
-                            <div id="form-message" class="alert-msg"></div>
-                        </div>
+                                    <option value="">Choose Class *</option>
+                                    <option>Nursery</option>
+                                    <option>LKG</option>
+                                    <option>UKG</option>
+                                    <option>Class I</option>
+                                    <option>Class II</option>
+                                    <option>Class III</option>
+                                    <option>Class IV</option>
+                                    <option>Class V</option>
+                                    <option>Class VI</option>
+                                    <option>Class VII</option>
+                                    <option>Class VIII</option>
+                                    <option>Class IX</option>
+                                    <option>Class X</option>
+                                    <option>Class XI</option>
+                                    <option>Class XII</option>
 
-                    </form>
+                                </select>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="form-group comments">
+                                <textarea class="form-control" id="message" name="message" placeholder="Type Message *"
+                                    required></textarea>
+                            </div>
+
+                            <!-- CAPTCHA -->
+                            <div class="captcha-wrapper">
+
+                                <div id="captchaQuestion">
+                                    52J3K34
+                                </div>
+
+                                <div class="captcha-input">
+                                    <input class="form-control" id="captcha" name="captcha"
+                                        placeholder="Enter Above Security Text Here *" type="text" required>
+                                </div>
+
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" name="submit" id="submit" class="btn-style-one circle">
+                                Submit <span></span>
+                            </button>
+
+                            <!-- Notification -->
+                            <div class="col-lg-12 alert-notification">
+                                <div id="form-message" class="alert-msg"></div>
+                            </div>
+
+                        </form>
+
+                    </div>
 
                 </div>
+                <!-- RIGHT COLUMN END -->
 
             </div>
-            <!-- RIGHT COLUMN END -->
 
         </div>
 
     </div>
-
-</div>
-<!-- Map, Admission and Enrollment Section End -->
+    <!-- Map, Admission and Enrollment Section End -->
 
     <!-- Advertisements
      ============================================-->
@@ -1336,148 +1349,150 @@
         </div>
     </div>
     <!-- End Visa Country  -->
-    <!-- Start Blog 
-    ============================================= -->
+
+
+    <!-- Start Blog -->
     <div class="home-blog-area default-padding bottom-less bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                     <div class="site-heading text-center">
-                        <h4 class="sub-title">Celebrating our milestone</h4>
-                        <!-- <h5 class="title split-text">MVM Franchisee || Maharishi Birth Centenary Year || MVM Silver
-                            Jublee</h5> -->
+                        <h4 class="sub-title">Celebrating our Milestone</h4>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="container">
             <div class="row">
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="home-blog-style-three wow fadeInUp">
-                        <div class="thumb">
-                            <img src="assets/img/MVMDamoh/milestone1.png" alt="Image Not Found">
+                <div class="col-lg-12">
+                    <div class="home-blog-carousel swiper">
+                        <div class="swiper-wrapper">
 
-                        </div>
-                        <div class="info">
-                            <div class="inner">
-                                <div class="content">
-                                    <h5><a href="blog-single-with-sidebar.html">MVM Franchisee</a></h5>
-                                    <a class="circle-icon-btn" href="blog-single-with-sidebar.html">
-                                        <div class="button-icon">
-                                            <img src="assets/img/icon/arrow-up.png" alt="Image Not Found">
+                            <!-- Single Item -->
+                            <div class="swiper-slide">
+                                <div class="home-blog-style-three">
+                                    <div class="thumb milestone-thumb">
+                                        <img src="assets/img/MVMDamoh/milestone1.png" alt="MVM Franchisee"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="info">
+                                        <div class="inner">
+                                            <div class="content">
+                                                <h5><a href="blog-single-with-sidebar.html">MVM Franchisee</a></h5>
+                                                <a class="circle-icon-btn" href="blog-single-with-sidebar.html">
+                                                    <div class="button-icon">
+                                                        <img src="assets/img/icon/arrow-up.png" alt="Arrow">
+                                                    </div>
+                                                    <span>Know More</span>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <span>Know More</span>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
+
+                            <!-- Single Item -->
+                            <div class="swiper-slide">
+                                <div class="home-blog-style-three">
+                                    <div class="thumb milestone-thumb">
+                                        <img src="assets/img/MVMDamoh/milestone2.png"
+                                            alt="Maharishi Birth Centenary Year" loading="lazy">
+                                    </div>
+                                    <div class="info">
+                                        <div class="inner">
+                                            <div class="content">
+                                                <h5><a href="blog-single-with-sidebar.html">Maharishi Birth Centenary
+                                                        Year</a></h5>
+                                                <a class="circle-icon-btn" href="blog-single-with-sidebar.html">
+                                                    <div class="button-icon">
+                                                        <img src="assets/img/icon/arrow-up.png" alt="Arrow">
+                                                    </div>
+                                                    <span>Know More</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Item -->
+                            <div class="swiper-slide">
+                                <div class="home-blog-style-three">
+                                    <div class="thumb milestone-thumb">
+                                        <img src="assets/img/MVMDamoh/milestone3.png" alt="MVM Silver Jubilee"
+                                            loading="lazy">
+
+                                    </div>
+                                    <div class="info">
+                                        <div class="inner">
+                                            <div class="content">
+                                                <h5><a href="blog-single-with-sidebar.html">MVM Silver Jubilee</a></h5>
+                                                <a class="circle-icon-btn" href="blog-single-with-sidebar.html">
+                                                    <div class="button-icon">
+                                                        <img src="assets/img/icon/arrow-up.png" alt="Arrow">
+                                                    </div>
+                                                    <span>Know More</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="home-blog-style-three wow fadeInUp" data-wow-delay="100ms">
-                        <div class="thumb">
-                            <img src="assets/img/MVMDamoh/milestone2.png" alt="Image Not Found">
-
-                        </div>
-                        <div class="info">
-                            <div class="inner">
-                                <div class="content">
-                                    <h5><a href="blog-single-with-sidebar.html">Maharishi
-                                            Birth Centenary Year</a></h5>
-                                    <a class="circle-icon-btn" href="blog-single-with-sidebar.html">
-                                        <div class="button-icon">
-                                            <img src="assets/img/icon/arrow-up.png" alt="Image Not Found">
-                                        </div>
-                                        <span>Know More</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="home-blog-style-three wow fadeInUp" data-wow-delay="200ms">
-                        <div class="thumb">
-                            <img src="assets\img\MVMDamoh\milestone3.png" alt="Image Not Found">
-
-                        </div>
-                        <div class="info">
-                            <div class="inner">
-                                <div class="content">
-                                    <h5><a href="blog-single-with-sidebar.html">MVM
-                                            Silver Jublee</a></h5>
-                                    <a class="circle-icon-btn" href="blog-single-with-sidebar.html">
-                                        <div class="button-icon">
-                                            <img src="assets/img/icon/arrow-up.png" alt="Image Not Found">
-                                        </div>
-                                        <span>Know More</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
             </div>
         </div>
     </div>
-    <!-- End Blog  -->
-
+    <!-- End Blog -->
 
 
     <!-- Footer Start -->
     <footer class="bg-dark footer-style-three overflow-hidden text-light"
         style="background: url(assets/img/shape/14.png);">
         <div class="shape">
-            <img src="assets/img/shape/15.png" alt="Image Not Found">
-            <img src="assets/img/shape/18.png" alt="Image Not Found">
+            <img src="assets/img/shape/15.png" alt="">
+            <img src="assets/img/shape/18.png" alt="">
         </div>
         <div class="container">
             <div class="footer-grid-items">
+
+                <!-- About + Contact -->
                 <div class="footer-item">
                     <div class="f-item about">
                         <h4 class="widget-title">MVM Damoh</h4>
                         <div class="f-item">
                             <p>
-                                There are many variations of passages of Lorem Ipsum available, but perfect majority
-                                have suffered alteration .
+                                Maharishi Vidya Mandir, Damoh provides quality education, academic excellence
+                                and value-based learning to every student.
                             </p>
                             <ul class="contact-list-two">
                                 <li>
-                                    <div class="icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
+                                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
                                     <div class="info">
-                                        <h5>Ladanbag
-                                            Balakot Road, Post Hathna
+                                        <h5>Ladanbag Balakot Road, Post Hathna,
                                             Damoh (470661) - Madhya Pradesh</h5>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="icon">
-                                        <i class="fas fa-mobile"></i>
-                                    </div>
+                                    <div class="icon"><i class="fas fa-mobile"></i></div>
                                     <div class="info">
-                                        <h5><a href="tel:7777893615"> 7777893615</a></h5>
+                                        <h5><a href="tel:7777893615">7777893615</a></h5>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="icon">
-                                        <i class="fas fa-phone-alt"></i>
-                                    </div>
+                                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
                                     <div class="info">
-                                        <h5><a href="tel:+4733378901"> 07812 - 225384 / 9893429639</a></h5>
+                                        <h5>
+                                            <a href="tel:07812225384">07812-225384</a> /
+                                            <a href="tel:9893429639">9893429639</a>
+                                        </h5>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
+                                    <div class="icon"><i class="fas fa-envelope"></i></div>
                                     <div class="info">
                                         <h5><a href="mailto:mvmdamoh@mssmail.org">mvmdamoh@mssmail.org</a></h5>
                                     </div>
@@ -1486,57 +1501,41 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Site Map + Working days -->
                 <div class="footer-item links">
                     <div class="f-item link">
-                        <h4 class="widget-title">Quick Links</h4>
+                        <h4 class="widget-title">Site Map</h4>
                         <ul>
-                            <li>
-                                <a href="about-us.html">About Us</a>
-                            </li>
-                            <li>
-                                <a href="contact-us.html">Academics</a>
-                            </li>
-                            <li>
-                                <a href="about-us-2.html">Admission</a>
-                            </li>
-                            <li>
-                                <a href="about-us.html">Achievements</a>
-                            </li>
-                            <li>
-                                <a href="blog-with-sidebar.html">Management</a>
-                            </li>
-                            <li>
-                                <a href="blog-with-sidebar.html">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="blog-with-sidebar.html">Contact Us</a>
-                            </li>
+                            <li><a href="MVMdamohIndex.html">Home</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact-us.html">Academics</a></li>
+                            <li><a href="about-us-2.html">Admission</a></li>
+                            <li><a href="about-us.html">Achievements</a></li>
+                            <li><a href="blog-with-sidebar.html">Management</a></li>
+                            <li><a href="blog-with-sidebar.html">Gallery</a></li>
+                            <li><a href="MVMContactUs.html">Contact Us</a></li>
+                            <li><a href="sitemap.html">Full Site Map</a></li>
                         </ul>
                     </div>
                     <div class="f-item link">
                         <h4 class="widget-title">Working days</h4>
                         <ul>
-                            <li>
-                                School days :
-                            </li>
-                            <li>
-                                Monday - Saturday
-                            </li>
-                            <li>
-                                Sunday (closed)
-                            </li>
+                            <li>School days :</li>
+                            <li>Monday - Saturday</li>
+                            <li>Sunday (closed)</li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Newsletter + Social -->
                 <div class="footer-item">
                     <div class="f-item newsletter">
                         <h4 class="widget-title">Newsletter</h4>
-                        <p>
-                            Subscribe our newsletter to get latest update and news
-                        </p>
+                        <p>Subscribe our newsletter to get latest update and news</p>
                         <form action="#">
                             <input type="email" placeholder="Your Email" class="form-control" name="email">
-                            <button type="submit">
+                            <button type="submit" aria-label="Subscribe">
                                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 17L17 1H7.8" stroke="white" stroke-width="2"></path>
@@ -1551,7 +1550,7 @@
                             </li>
                             <li>
                                 <a href="https://x.com/MVMSchools">
-                                    <img src="assets/img/icon/twitter-x.png" alt="Image Not Found">
+                                    <img src="assets/img/icon/twitter-x.png" alt="X">
                                 </a>
                             </li>
                             <li>
@@ -1560,7 +1559,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/maharishividyamandirschools/ ">
+                                <a href="https://www.instagram.com/maharishividyamandirschools/">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
@@ -1572,10 +1571,12 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
+
         <!-- Start Footer Bottom -->
-        <div class="footer-bottom text-center">
+        <div class="footer-bottom text-center" style="position: relative;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -1584,10 +1585,23 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Site Map + Back to Top (right corner) -->
+            <div class="footer-right-actions">
+                <a href="sitemap.html" class="sitemap-btn">
+                    <i class="fas fa-sitemap"></i> Site Map
+                </a>
+                <a href="#" id="backToTop" aria-label="Back to top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
         </div>
+
         <!-- End Footer Bottom -->
     </footer>
     <!-- End Footer -->
+
+
 
     <!-- jQuery Frameworks
     ============================================= -->
@@ -1610,6 +1624,39 @@
     <script src="assets/js/ScrollTrigger.min.js"></script>
     <script src="assets/js/SplitText.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var milestoneSwiper = new Swiper(".home-blog-carousel", {
+                slidesPerView: 3,
+                spaceBetween: 25,
+                loop: true,
+                speed: 1000,
+
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false
+                },
+
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 15
+                    },
+                    576: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 25
+                    }
+                }
+            });
+
+        });
+    </script>
 
 </body>
 
