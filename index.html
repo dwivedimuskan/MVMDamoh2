@@ -503,7 +503,7 @@
                                     <img src="assets/img/shape/41.png" alt="Image Not Found">
                                 </div> -->
                                 <span>01</span>
-                                <h4>10.04</h4>
+                                <h4 class="counter" data-target="10.04" data-decimals="2">0</h4>
                                 <p>
                                     Acres Land
                                 </p>
@@ -521,7 +521,7 @@
                                     <img src="assets/img/shape/41.png" alt="Image Not Found">
                                 </div> -->
                                 <span>02</span>
-                                <h4>973</h4>
+                                <h4 class="counter" data-target="973">0</h4>
                                 <p>
                                     Students
                                 </p>
@@ -539,7 +539,7 @@
                                     <img src="assets/img/shape/41.png" alt="Image Not Found">
                                 </div> -->
                                 <span>03</span>
-                                <h4>53</h4>
+                                <h4 class="counter" data-target="53">0</h4>
                                 <p>
                                     Total Staff
                                 </p>
@@ -557,7 +557,7 @@
                                     <img src="assets/img/shape/41.png" alt="Image Not Found">
                                 </div> -->
                                 <span>04</span>
-                                <h4>2000</h4>
+                                <h4 class="counter" data-target="2000" data-plain="true">0</h4>
                                 <p>
                                     Established In Year
                                 </p>
@@ -1265,10 +1265,16 @@
                                     </div>
                                 </div>
                                 <div class="bottom">
-                                    <p></p>
-                                    <a href="country-details.html" class="btn-style-one circle mt-30">Discover More
-                                        <span></span></a>
+                                    <p id="hover-para">
+                                        A joyful Deepawali celebration filled with traditional activities, festive
+                                        decorations, and cultural performances.
+                                    </p>
+
+                                    <a href="country-details.html" class="btn-style-one circle mt-30">
+                                        Discover More <span></span>
+                                    </a>
                                 </div>
+
                             </div>
                         </li>
                         <li>
@@ -1299,13 +1305,13 @@
                                         <h5>Admission Open For 2026-2027</h5>
                                         <span> 01/01/2026</span>
                                     </div>
+                                    <div class="bottom">
+                                        <p></p>
+                                        <a href="country-details.html" class="btn-style-one circle mt-30">Discover More
+                                            <span></span></a>
+                                    </div>
+
                                 </div>
-                                <div class="bottom">
-                                    <p></p>
-                                    <a href="country-details.html" class="btn-style-one circle mt-30">Discover More
-                                        <span></span></a>
-                                </div>
-                            </div>
                         </li>
                         <li>
                             <div class="visa-offer-country-item">
@@ -1655,6 +1661,43 @@
                 }
             });
 
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const section = document.getElementById("scopeIcon");
+            const counters = section.querySelectorAll(".counter");
+            let started = false;
+
+            function animateCounter(el) {
+                const target = parseFloat(el.dataset.target);
+                const decimals = parseInt(el.dataset.decimals || 0);
+                const duration = 2000; // milliseconds
+                const startTime = performance.now();
+
+                function update(now) {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3); // smooth slow-down at the end
+                    const value = target * eased;
+                    el.textContent = value.toFixed(decimals);
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = target.toFixed(decimals);
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting && !started) {
+                        started = true;
+                        counters.forEach(animateCounter);
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(section);
         });
     </script>
 

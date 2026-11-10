@@ -12110,7 +12110,7 @@ img {
 #navbar-menu .navbar-nav>li>a {
 	padding-left: 6px !important;
 	padding-right: 6px !important;
-	font-size: 13px !important;
+	font-size: 15px !important;
 	white-space: nowrap;
 }
 
@@ -12626,15 +12626,11 @@ img {
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, border-radius .15s ease;
 }
 
-#scopeIcon .info{
-
-	color:rgb(1, 1, 27)
-}
 
 
 	
 .milestone-thumb {
-    height: 100px;
+    height: 100%;
     width: 100%;
     overflow: hidden;
     /* background: #fff; */
@@ -12709,4 +12705,25 @@ img {
         justify-content: center;
         margin-top: 15px;
     }
+}
+
+/* Paragraph Hidden */
+.visa-offer-country-item #hover-para {
+    transform: translateX(50px);
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    transition: all 0.3s ease;
+	
+}
+
+/* Paragraph Visible When Card Expands */
+.out .visa-offer-country-item #hover-para {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+.bottom{
+	padding-top:none;
 }
