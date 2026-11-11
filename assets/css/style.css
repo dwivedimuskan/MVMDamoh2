@@ -6097,7 +6097,7 @@ ul.list-style-four li {
 }
 
 .process-style-one-item .info {
-	margin-top: 30px;
+	margin-top: 10px;
 	position: relative;
 	z-index: 1;
 }
@@ -12110,7 +12110,7 @@ img {
 #navbar-menu .navbar-nav>li>a {
 	padding-left: 6px !important;
 	padding-right: 6px !important;
-	font-size: 15px !important;
+	font-size: 14px !important;
 	white-space: nowrap;
 }
 
@@ -12260,8 +12260,10 @@ img {
 .admission-buttons {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 12px;
+	gap: 20px;
 	margin-top: 20px;
+	
+	
 }
 
 .map-admission-right #enrollmentForm {
@@ -12282,6 +12284,7 @@ img {
 .map-admission-right .form-group textarea {
 	min-height: 145px;
 }
+
 
 .captcha-wrapper {
 	display: flex;
