@@ -16910,3 +16910,10 @@ img {
 	
 }
 
+/* Sirf zoom-out (75%) pe header ko failao, 100% untouched */
+/* 100% (1326px) pe kuch change nahi, sirf zoom-out (1500px+) pe header full-width */
+@media (min-width: 1500px) {
+  header .navbar .container-full {
+    max-width: 100%;
+  }
+}
