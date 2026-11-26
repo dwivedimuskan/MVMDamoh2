@@ -12992,8 +12992,8 @@ img {
 
 .banner-area.banner-style-three .item {
 	height: auto !important;
-	min-height: 0 !important;
-	aspect-ratio: 1920 / 700;
+	min-height: 0!important;
+	aspect-ratio: 1920 / 760;
 	background-size: cover !important;
 	background-position: center top !important;
 	background-repeat: no-repeat !important;
@@ -16909,3 +16909,4 @@ img {
 	color: whitesmoke;
 	
 }
+
