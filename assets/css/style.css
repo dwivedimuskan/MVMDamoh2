@@ -9070,9 +9070,6 @@ footer {
 	z-index: 1;
 }
 
-footer .footer-item {
-	margin-top: 50px;
-}
 
 footer .f-items {
 	padding-top: 70px;
@@ -9407,7 +9404,7 @@ ul.contact-list-two li h5 {
 	grid-template-columns: 1fr 2fr 1fr;
 	display: grid;
 	gap: 50px;
-	padding-bottom: 110px;
+	padding-bottom: 40px;
 }
 
 .footer-grid-items .footer-item.links {
