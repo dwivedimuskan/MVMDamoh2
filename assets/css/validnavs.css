@@ -149,7 +149,6 @@ Version: 1.0
 
 .navbar-brand>img {
 	display: block;
-	height: 50px;
 }
 
 .navbar-toggle {
@@ -2223,6 +2222,7 @@ nav.navbar.validnavs.brand-center {
 
 	nav.navbar.validnavs.navbar-sidebar .navbar-brand img {
 		height: 50px;
+		
 	}
 
 	nav.navbar.validnavs.navbar-sidebar .navbar-toggle {
@@ -2772,7 +2772,7 @@ form.search-form button i {
 
 @media (min-width: 1024px) {
 	nav.navbar ul.nav>li>a {
-		padding: 30px 13px;
+		padding: 34px 10px;
 		font-weight: 800;
 		text-transform: uppercase;
 		font-size: 15px;
@@ -3952,8 +3952,8 @@ nav.validnavs .dropdown.megamenu-fw li {
 	}
 
 	nav.navbar ul.nav>li>a {
-		padding: 30px 10px;
-		font-size: 14px;
+		padding: 35px 10px;
+		font-size: 12px;
 	}
 }
 
